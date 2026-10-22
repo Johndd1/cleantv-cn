@@ -1,7 +1,5 @@
 # cleantv-cn · 大陆应用版电视桌面
 
-面向中国大陆常用视频应用的简约 Android TV 首页，支持配置首页应用、投屏与硬盘入口，以及按设备记录的安装恢复。与小米及视频平台无隶属关系。
-
 > 完善版 `1.16-home.2-local`：新增首页配置与按设备记录的安装恢复。已通过编译和 18 项单元测试，尚未完成真机验收，按预发布版本提供。
 >
 > [下载 APK 与源码](https://github.com/Johndd1/cleantv-cn/releases/tag/v1.16-home.2-local) · [改动说明](docs/LOCAL-CHANGES.md) · [验证记录](docs/VALIDATION.md)
