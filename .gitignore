@@ -24,3 +24,9 @@ __pycache__/
 *.keystore
 *.jks
 .env
+
+# Local build SDKs, packaged artifacts and secrets
+.build-tools/
+*.apk
+*.aab
+.env.*

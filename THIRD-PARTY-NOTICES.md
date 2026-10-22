@@ -36,6 +36,6 @@ SOFTWARE.
 
 ---
 
-The Outfit typeface in launcher/app/src/main/res/font/outfit.ttf is copyright
-The Outfit Project Authors and licensed under the SIL Open Font License 1.1,
-see launcher/FONT-LICENSE-OFL.txt.
+The Inter typeface in launcher/app/src/main/res/font/inter.ttf is copyright
+The Inter Project Authors and licensed under the SIL Open Font License 1.1,
+see FONT-LICENSE-OFL.txt.

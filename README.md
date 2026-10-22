@@ -6,9 +6,24 @@
 >
 > [下载 APK 与源码](https://github.com/Johndd1/home-tv-cn/releases/tag/v1.16-home.2-local) · [改动说明](docs/LOCAL-CHANGES.md) · [验证记录](docs/VALIDATION.md)
 >
-> 下面截图来自原版，不代表完善版已经在该电视上通过测试。
+> 本次目录整理以已发布的 `1.16-home.2-local` 提交为基础；另一个本地工作区中的 Android 6 / Home 键修复仍在调试，未并入本仓库。下面截图来自原版，不代表完善版已经在该电视上通过测试。
 
 ![原版电视运行画面](docs/home-preview.png)
+
+## 目录结构
+
+```text
+.github/       自动检查与协作模板
+addons/        扩展说明（当前未提供独立插件）
+docs/          改动说明、验证记录与截图
+examples/      安装与恢复命令示例
+launcher/      Android 桌面应用、Gradle 工程与 Kotlin 测试
+tests/         Python 安装恢复测试
+themes/        内置主题说明
+tools/         设备检查、安装、恢复与辅助工具
+```
+
+Android 构建在 `launcher/` 执行；安装、恢复和 Python 测试仍在仓库根目录执行。参考仓库的目录组织不代表本项目具备其清理包名单、去广告或跨品牌兼容能力。详见 [目录说明](docs/STRUCTURE.md)。
 
 ## 功能
 
@@ -77,10 +92,10 @@ TV='<电视IP>' bash tools/restore.sh
 需要 JDK 17、Android SDK 36，并设置 `JAVA_HOME` 与 `ANDROID_HOME`：
 
 ```sh
-./gradlew assembleStandardRelease lintStandardRelease
+(cd launcher && ./gradlew assembleStandardRelease lintStandardRelease)
 ```
 
-输出位于 `app/build/outputs/apk/standard/release/`。本仓库当前预发布 APK 使用本地 Android debug key 签名，签名密钥不提交。本版适合试用，长期维护建议配置并备份自己的发布签名；不同签名的 APK 不能直接覆盖安装。
+输出位于 `launcher/app/build/outputs/apk/standard/release/`。本仓库当前预发布 APK 使用本地 Android debug key 签名，签名密钥不提交。本版适合试用，长期维护建议配置并备份自己的发布签名；不同签名的 APK 不能直接覆盖安装。
 
 签名配置位于忽略版本控制的 `local/signing.properties`，字段为 `storeFile`（相对于 `local/`）、`storePassword`、`keyAlias`、`keyPassword`。不要分享该文件和密钥。
 
@@ -91,7 +106,7 @@ TV='<电视IP>' bash tools/restore.sh
 ```sh
 python3 -m unittest discover -s tests -v
 bash -n tools/install.sh tools/restore.sh
-./gradlew testStandardReleaseUnitTest assembleStandardRelease lintStandardRelease
+(cd launcher && ./gradlew testStandardReleaseUnitTest assembleStandardRelease lintStandardRelease)
 ```
 
 Python 测试使用模拟设备覆盖重复安装、权限恢复、HOME 恢复失败、无记录/损坏记录拒绝执行及其他服务的保留；Kotlin 测试验证首页应用配置、排序和数量边界。这些检查不能代替电视真机验收。具体改动与来源见 [本地改动说明](docs/LOCAL-CHANGES.md)。

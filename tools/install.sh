@@ -13,7 +13,7 @@ if [ "${KEEP_ADB:-0}" = 1 ]; then
 fi
 if [ "${BUILD:-0}" = 1 ] && [ -z "${APK_FILE:-}" ]; then
   case "$FLAVOR" in standard) TASK=assembleStandardRelease ;; guard) TASK=assembleGuardRelease ;; esac
-  (cd "$ROOT" && ./gradlew "$TASK")
-  export APK_FILE="$ROOT/app/build/outputs/apk/$FLAVOR/release/app-$FLAVOR-release.apk"
+  (cd "$ROOT/launcher" && ./gradlew "$TASK")
+  export APK_FILE="$ROOT/launcher/app/build/outputs/apk/$FLAVOR/release/app-$FLAVOR-release.apk"
 fi
 exec python3 "$ROOT/tools/device.py" install --flavor "$FLAVOR" "$@"
