@@ -28,6 +28,10 @@ object AerialSettings {
     private lateinit var app: Context
 
     var focusStyle by mutableStateOf(FocusStyle.HighContrast); private set
+    var favorites by mutableStateOf(FavoriteOrder.defaults); private set
+    var darkBackground by mutableStateOf(false); private set
+    var castPackage by mutableStateOf<String?>(null); private set
+    var diskPackage by mutableStateOf<String?>(null); private set
 
     /** TV inputs pinned to Home as tiles, by TvInputInfo id. */
     var pinnedSources by mutableStateOf<Set<String>>(emptySet()); private set
@@ -44,6 +48,10 @@ object AerialSettings {
         app = context.applicationContext
         val prefs = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         focusStyle = FocusStyle.of(prefs.getString("focus_style", null))
+        favorites = FavoriteOrder.normalize(prefs.getString("home_favorites", null)?.split(',') ?: FavoriteOrder.defaults)
+        darkBackground = prefs.getBoolean("home_dark", false)
+        castPackage = prefs.getString("cast_package", null)
+        diskPackage = prefs.getString("disk_package", null)
         pinnedSources = prefs.getStringSet("pinned_sources", null)?.toSet() ?: emptySet()
         bootSource = prefs.getString("boot_source", null)
     }
@@ -62,5 +70,21 @@ object AerialSettings {
     fun chooseFocusStyle(style: FocusStyle) {
         focusStyle = style
         app.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit { putString("focus_style", style.key) }
+    }
+
+    fun moveFavorite(key: String, delta: Int) = saveFavorites(FavoriteOrder.move(favorites, key, delta))
+    fun toggleFavorite(key: String) = saveFavorites(FavoriteOrder.toggle(favorites, key))
+    fun resetFavorites() = saveFavorites(FavoriteOrder.defaults)
+    private fun saveFavorites(keys: List<String>) {
+        favorites = keys
+        app.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit { putString("home_favorites", keys.joinToString(",")) }
+    }
+    fun chooseDarkBackground(dark: Boolean) {
+        darkBackground = dark
+        app.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit { putBoolean("home_dark", dark) }
+    }
+    fun chooseShortcut(cast: Boolean, key: String?) {
+        if (cast) castPackage = key else diskPackage = key
+        app.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit { putString(if (cast) "cast_package" else "disk_package", key) }
     }
 }

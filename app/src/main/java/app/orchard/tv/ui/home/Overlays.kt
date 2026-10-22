@@ -241,6 +241,7 @@ fun HiddenAppsSheet(
                     .padding(28.dp),
             ) {
                 BasicText(stringResource(R.string.hidden_title), style = Type.LargeTitle)
+                MenuRow(Glyph.ChevronLeft, stringResource(R.string.home_settings_back), onDismiss, focusRequester = first)
                 BasicText(
                     stringResource(if (apps.isEmpty()) R.string.hidden_empty else R.string.hidden_hint),
                     style = Type.Callout, modifier = Modifier.padding(top = 4.dp, bottom = 20.dp),
@@ -258,7 +259,6 @@ fun HiddenAppsSheet(
                         row.forEachIndexed { c, app ->
                             Pressable(
                                 onClick = { onUnhide(app.key) },
-                                focusRequester = if (r == 0 && c == 0) first else null,
                                 focusedScale = 1.1f,
                             ) { state ->
                                 Column(horizontalAlignment = Alignment.CenterHorizontally) {

@@ -48,6 +48,7 @@ fun Pressable(
     focusRequester: FocusRequester? = null,
     focusedScale: Float = 1.06f,
     onKey: ((KeyEvent) -> Boolean)? = null,
+    onLongClick: (() -> Unit)? = null,
     content: @Composable BoxScope.(PressState) -> Unit,
 ) {
     val state = remember { PressState() }
@@ -76,6 +77,10 @@ fun Pressable(
                 when (e.type) {
                     KeyEventType.KeyDown -> {
                         if (e.nativeKeyEvent.repeatCount == 0) state.pressed = true
+                        else if (state.pressed && onLongClick != null) {
+                            state.pressed = false
+                            onLongClick()
+                        }
                         true
                     }
                     KeyEventType.KeyUp -> {

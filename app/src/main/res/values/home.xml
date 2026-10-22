@@ -18,4 +18,25 @@
     <string name="home_back_hint">Press Back to return home</string>
     <string name="home_pending">Not installed</string>
     <string name="home_unavailable">This app is not installed or has no available entry</string>
+    <string name="home_preferences">Home settings</string>
+    <string name="home_preferences_hint">Changes are saved automatically. Back returns to the previous screen.</string>
+    <string name="home_edit_favorites">Edit favorite apps</string>
+    <string name="home_choose_cast">Choose cast app</string>
+    <string name="home_choose_disk">Choose disk / file app</string>
+    <string name="home_use_glow">Use red and blue background</string>
+    <string name="home_use_dark">Use dark background</string>
+    <string name="home_use_standard_focus">Use standard focus outline</string>
+    <string name="home_use_high_focus">Use high contrast focus outline</string>
+    <string name="home_reset_favorites">Restore default favorite apps</string>
+    <string name="home_settings_back">Back</string>
+    <string name="home_favorites_hint">Move apps left or right, or remove them. Keep 1–%1$d apps; add installed apps below.</string>
+    <string name="home_move_left">Left</string>
+    <string name="home_move_right">Right</string>
+    <string name="home_remove">Remove</string>
+    <string name="home_add_favorite">Add to Home</string>
+    <string name="home_remove_favorite">Remove from Home</string>
+    <string name="home_shortcut_auto">Detect automatically</string>
+    <string name="home_choose_shortcut_hint">No shortcut found. Choose an installed app in Home settings.</string>
+    <string name="home_library_hint">Hold OK for app actions. Press Back to return home.</string>
+    <string name="home_favorites_full">Home is full. Remove a favorite to add another app.</string>
 </resources>

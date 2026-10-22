@@ -187,6 +187,19 @@ object SystemProbe {
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     }
 
+    /** Known installed entries first, then the platform picker; users can bind any app in Home settings. */
+    fun shortcutIntent(context: Context, cast: Boolean, apps: List<app.orchard.tv.apps.AppEntry>): Intent? {
+        val chosen = if (cast) app.orchard.tv.settings.AerialSettings.castPackage else app.orchard.tv.settings.AerialSettings.diskPackage
+        val candidates = if (cast) listOf("com.xiaomi.mitv.smartshare", "com.tcl.MultiScreenInteraction_TV")
+            else listOf("com.xiaomi.mitv.mediaexplorer", "com.tcl.ui_mediaCenter")
+        val entry = (listOfNotNull(chosen) + candidates).firstNotNullOfOrNull { pkg -> apps.firstOrNull { it.packageName == pkg } }
+        if (entry != null) return entry.launchIntent()
+        val generic = if (cast) Intent(Settings.ACTION_CAST_SETTINGS)
+            else Intent(Intent.ACTION_MAIN).addCategory("android.intent.category.APP_FILES")
+        return generic.takeIf { context.packageManager.resolveActivity(it, 0) != null }
+            ?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    }
+
     // ---- Inputs ----
 
     private const val XIAOMI_PLAYER = "com.xiaomi.mitv.tvplayer"

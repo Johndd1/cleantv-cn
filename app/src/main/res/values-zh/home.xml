@@ -18,4 +18,25 @@
     <string name="home_back_hint">按返回键回到首页</string>
     <string name="home_pending">待安装</string>
     <string name="home_unavailable">此应用尚未安装或没有可用入口</string>
+    <string name="home_preferences">首页设置</string>
+    <string name="home_preferences_hint">修改后自动保存，按返回键回到上一级。</string>
+    <string name="home_edit_favorites">编辑首页应用</string>
+    <string name="home_choose_cast">选择投屏应用</string>
+    <string name="home_choose_disk">选择硬盘 / 文件应用</string>
+    <string name="home_use_glow">使用红蓝背景</string>
+    <string name="home_use_dark">使用纯色深色背景</string>
+    <string name="home_use_standard_focus">使用标准焦点边框</string>
+    <string name="home_use_high_focus">使用高对比焦点边框</string>
+    <string name="home_reset_favorites">恢复默认首页应用</string>
+    <string name="home_settings_back">返回</string>
+    <string name="home_favorites_hint">可左右调整顺序或移除应用。首页保留 1–%1$d 个应用；在下方添加已安装应用。</string>
+    <string name="home_move_left">左移</string>
+    <string name="home_move_right">右移</string>
+    <string name="home_remove">移除</string>
+    <string name="home_add_favorite">添加到首页</string>
+    <string name="home_remove_favorite">从首页移除</string>
+    <string name="home_shortcut_auto">自动识别</string>
+    <string name="home_choose_shortcut_hint">未找到可用入口，请在首页设置中指定已安装的应用。</string>
+    <string name="home_library_hint">长按确认键可添加到首页、隐藏或查看应用；按返回键回到首页。</string>
+    <string name="home_favorites_full">首页已满，移除一个应用后可继续添加。</string>
 </resources>
