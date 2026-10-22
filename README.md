@@ -1,10 +1,10 @@
-# 简居 TV · 大陆应用版电视桌面
+# cleantv-cn · 简居 TV 大陆应用版电视桌面
 
 面向中国大陆常用视频应用的简约 Android TV 首页。本仓库基于 [Jimu888/home-tv-cn](https://github.com/Jimu888/home-tv-cn) 完善，原项目基于 [pengchujin/aerial-tv](https://github.com/pengchujin/aerial-tv) 1.16 定制，保留上游 MIT 许可。非官方分支，与小米及视频平台无隶属关系。
 
 > 完善版 `1.16-home.2-local`：新增首页配置与按设备记录的安装恢复。已通过编译和 18 项单元测试，尚未完成真机验收，按预发布版本提供。
 >
-> [下载 APK 与源码](https://github.com/Johndd1/home-tv-cn/releases/tag/v1.16-home.2-local) · [改动说明](docs/LOCAL-CHANGES.md) · [验证记录](docs/VALIDATION.md)
+> [下载 APK 与源码](https://github.com/Johndd1/cleantv-cn/releases/tag/v1.16-home.2-local) · [改动说明](docs/LOCAL-CHANGES.md) · [验证记录](docs/VALIDATION.md)
 >
 > 本次目录整理以已发布的 `1.16-home.2-local` 提交为基础；另一个本地工作区中的 Android 6 / Home 键修复仍在调试，未并入本仓库。下面截图来自原版，不代表完善版已经在该电视上通过测试。
 
@@ -49,7 +49,7 @@ Android 构建在 `launcher/` 执行；安装、恢复和 Python 测试仍在仓
 
 ## 安装与恢复
 
-从本仓库 [预发布下载页](https://github.com/Johndd1/home-tv-cn/releases/tag/v1.16-home.2-local) 获取 `home-tv-standard-local.apk` 和源码，或自行构建。原作者的 `v1.16-home.1` 不包含本次修改。包名仍为 `app.orchard.tv`，自行构建默认使用本机 debug key，不能直接覆盖维护者或上游的不同签名版本。工具遇到签名冲突会停止，不会自动卸载或删除数据。
+从本仓库 [预发布下载页](https://github.com/Johndd1/cleantv-cn/releases/tag/v1.16-home.2-local) 获取 `home-tv-standard-local.apk` 和源码，或自行构建。原作者的 `v1.16-home.1` 不包含本次修改。包名仍为 `app.orchard.tv`，自行构建默认使用本机 debug key，不能直接覆盖维护者或上游的不同签名版本。工具遇到签名冲突会停止，不会自动卸载或删除数据。
 
 准备 Android platform-tools（`adb`）和 Python 3，电视与电脑连接同一可信局域网，在电视上启用调试并允许电脑连接。在项目根目录执行：
 
