@@ -4,9 +4,9 @@
 
 ```sh
 TV='<电视IP>' python3 tools/device.py check
-TV='<电视IP>' APK_FILE='/absolute/path/home-tv-standard-local.apk' bash tools/install.sh --preview
-TV='<电视IP>' APK_FILE='/absolute/path/home-tv-standard-local.apk' bash tools/install.sh --launcher-only
-TV='<电视IP>' APK_FILE='/absolute/path/home-tv-standard-local.apk' bash tools/install.sh
+TV='<电视IP>' APK_FILE='/absolute/path/cleantv-cn-standard.apk' bash tools/install.sh --preview
+TV='<电视IP>' APK_FILE='/absolute/path/cleantv-cn-standard.apk' bash tools/install.sh --launcher-only
+TV='<电视IP>' APK_FILE='/absolute/path/cleantv-cn-standard.apk' bash tools/install.sh
 TV='<电视IP>' bash tools/restore.sh --preview
 TV='<电视IP>' bash tools/restore.sh
 ```

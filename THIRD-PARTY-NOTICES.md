@@ -1,6 +1,6 @@
 # 参考来源
 
-本地完善版基于 Jimu888/home-tv-cn 提交 `6d755c1bc995d712610acde8eb93e10a640c74c6`；原有 Aerial 与字体许可继续适用。
+Aerial 代码遵循根目录 LICENSE 中的 MIT 许可，版权归 pengchujin；字体遵循 FONT-LICENSE-OFL.txt 中的 OFL 许可。
 
 参考 Gathin23/cleanyourtv 提交 `56cd3e81c062244ea313899d5af8d75294f2daae`：
 
